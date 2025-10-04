@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Shop_Климов.Classes
 {
-    internal class Shop
+    public class Shop
     {
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public Shop(string Name, int Price)
+        {
+            this.Name = Name;
+            this.Price = Price;
+        }
     }
 }
