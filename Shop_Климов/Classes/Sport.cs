@@ -9,7 +9,7 @@ namespace Shop_Климов.Classes
     public class Sport : Shop
     {
         public string Size { get; set; }
-        public Sport(string Name, int Price, string Size) : base(Name, Price)
+        public Sport(string Name, int Price, string Image, string Size) : base(Name, Price, Image)
         {
             this.Size = Size;
         }

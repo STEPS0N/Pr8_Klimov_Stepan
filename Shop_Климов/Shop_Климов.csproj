@@ -9,11 +9,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Ball.png" />
+    <None Remove="Images\Cactus.png" />
+    <None Remove="Images\Cat.png" />
+    <None Remove="Images\Costume.png" />
+    <None Remove="Images\Golf.png" />
     <None Remove="Images\ic_item.png" />
+    <None Remove="Images\MagicBook.png" />
+    <None Remove="Images\Robot.png" />
+    <None Remove="Images\S25.png" />
+    <None Remove="Images\Tab.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Ball.png" />
+    <Resource Include="Images\Cactus.png" />
+    <Resource Include="Images\Cat.png" />
+    <Resource Include="Images\Costume.png" />
+    <Resource Include="Images\Golf.png" />
     <Resource Include="Images\ic_item.png" />
+    <Resource Include="Images\MagicBook.png" />
+    <Resource Include="Images\Robot.png" />
+    <Resource Include="Images\S25.png" />
+    <Resource Include="Images\Tab.png" />
   </ItemGroup>
 
 </Project>

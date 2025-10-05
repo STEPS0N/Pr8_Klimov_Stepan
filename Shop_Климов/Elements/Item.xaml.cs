@@ -39,8 +39,24 @@ namespace Shop_Климов.Elements
             if (ItemData is Classes.Electronics)
             {
                 Classes.Electronics ElectronicsData = ItemData as Classes.Electronics;
-                tb_Characteristic1.Content = "Ёмкость аккамулятора: " + ElectronicsData.Battery_capacity + "мАч";
+                tb_Characteristic1.Content = "Ёмкость АКБ: " + ElectronicsData.Battery_capacity + " мАч";
                 tb_Characteristic2.Content = "Процессор: " + ElectronicsData.Processor;
+            }
+
+            if (!string.IsNullOrEmpty(ShopData.Image))
+            {
+                try
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(ShopData.Image, UriKind.RelativeOrAbsolute);
+                    bitmap.EndInit();
+                    itemImage.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    itemImage.Source = new BitmapImage(new Uri("/Images/ic_item.png", UriKind.RelativeOrAbsolute));
+                }
             }
         }
     }
