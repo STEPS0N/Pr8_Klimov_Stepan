@@ -25,16 +25,22 @@ namespace Shop_Климов.Elements
             InitializeComponent();
             Classes.Shop ShopData = ItemData as Classes.Shop;
             tb_Name.Content = ShopData.Name;
-            tb_Price.Content = "Цена: " + ShopData.Price;
+            tb_Price.Content = "Цена: " + ShopData.Price + " руб.";
             if (ItemData is Classes.Children)
             {
                 Classes.Children ChildrenData = ItemData as Classes.Children;
-                tb_Characteristic.Content = "Возраст: " + ChildrenData.Age;
+                tb_Characteristic1.Content = "Возраст: " + ChildrenData.Age;
             }
             if (ItemData is Classes.Sport)
             {
                 Classes.Sport SportData = ItemData as Classes.Sport;
-                tb_Characteristic.Content = "Размер: " + SportData.Size;
+                tb_Characteristic1.Content = "Размер: " + SportData.Size;
+            }
+            if (ItemData is Classes.Electronics)
+            {
+                Classes.Electronics ElectronicsData = ItemData as Classes.Electronics;
+                tb_Characteristic1.Content = "Ёмкость аккамулятора: " + ElectronicsData.Battery_capacity + "мАч";
+                tb_Characteristic2.Content = "Процессор: " + ElectronicsData.Processor;
             }
         }
     }
