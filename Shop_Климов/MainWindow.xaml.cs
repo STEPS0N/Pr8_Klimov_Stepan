@@ -42,41 +42,66 @@ namespace Shop_Климов
             }
         }
 
-        //private void Search_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    string search = Search.Text.Trim().ToLower();
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string search = Search.Text.Trim().ToLower();
 
-        //    parent.Children.Clear();
+            parent.Children.Clear();
 
-        //    if (string.IsNullOrWhiteSpace(search))
-        //    {
-        //        CreateUI();
-        //        return;
-        //    }
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                CreateUI();
+                return;
+            }
 
-        //    foreach (object item in AllItems)
-        //    {
-        //        if (item is Models.Shop shopItem)
-        //        {
-        //            bool found = shopItem.Name.ToLower().Contains(search);
+            foreach (object item in Child)
+            {
+                if (item is Models.Shop shopItem)
+                {
+                    bool found = shopItem.Name.ToLower().Contains(search);
 
-        //            if (!found && item is Models.Children childrenItem)
-        //                found = childrenItem.Age.ToString().Contains(search) || childrenItem.Price.ToString().Contains(search);
-                        
+                    if (!found && item is Models.Children childrenItem)
+                        found = childrenItem.Age.ToString().Contains(search) || childrenItem.Price.ToString().Contains(search);
 
-        //            if (!found && item is Models.Sport sportItem)
-        //                found = sportItem.Size.ToLower().Contains(search) || sportItem.Price.ToString().Contains(search);
+                    if (found)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+            }
 
-        //            if (!found && item is Models.Electronics electronicsItem)
-        //                found = electronicsItem.Battery_capacity.ToString().Contains(search) ||
-        //                       electronicsItem.Processor.ToLower().Contains(search) || electronicsItem.Price.ToString().Contains(search);
+            foreach (object item in Sport)
+            {
+                if (item is Models.Shop shopItem)
+                {
+                    bool found = shopItem.Name.ToLower().Contains(search);
 
-        //            if (found)
-        //            {
-        //                parent.Children.Add(new Elements.Item(item));
-        //            }
-        //        }
-        //    }
-        //}
+                    if (!found && item is Models.Sport sportItem)
+                        found = sportItem.Size.ToLower().Contains(search) || sportItem.Price.ToString().Contains(search);
+
+                    if (found)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+            }
+
+            foreach (object item in Electro)
+            {
+                if (item is Models.Shop shopItem)
+                {
+                    bool found = shopItem.Name.ToLower().Contains(search);
+
+                    if (!found && item is Models.Electronics electronicsItem)
+                        found = electronicsItem.Battery_capacity.ToString().Contains(search) ||
+                               electronicsItem.Processor.ToLower().Contains(search) || electronicsItem.Price.ToString().Contains(search);
+
+                    if (found)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+            }
+        }
     }
 }

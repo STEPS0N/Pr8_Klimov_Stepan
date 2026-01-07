@@ -32,8 +32,10 @@ namespace Shop_Климов.Classes
                     shopElement.Name,
                     shopElement.Price,
                     sportData.GetString(1),
-                    sportData.GetInt32(2)
-                    );
+                    sportData.GetInt32(2))
+                {
+                    Image = shopElement.Image
+                };
                 allSport.Add(newSport);
             }
 

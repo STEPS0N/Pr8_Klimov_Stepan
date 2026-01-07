@@ -32,8 +32,10 @@ namespace Shop_Климов.Classes
                     shopElement.Name,
                     shopElement.Price,
                     childrenData.GetInt32(1),
-                    childrenData.GetInt32(2)
-                    );
+                    childrenData.GetInt32(2))
+                {
+                    Image = shopElement.Image
+                };
                 allChildren.Add(newChildren);
             }
 

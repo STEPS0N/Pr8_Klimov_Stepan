@@ -22,5 +22,11 @@ namespace Shop_Климов.Models
             this.Name = Name;
             this.Price = Price;
         }
+
+        //Конструктор для изображения
+        public Shop(int Id, string Name, int Price, string Image) : this(Id, Name, Price)
+        {
+            this.Image = Image;
+        }
     }
 }

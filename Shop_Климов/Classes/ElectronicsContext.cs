@@ -35,8 +35,10 @@ namespace Shop_Климов.Classes
                     shopElement.Price,
                     electronicsData.GetInt32(1),
                     electronicsData.GetString(2),
-                    electronicsData.GetInt32(3)
-                    );
+                    electronicsData.GetInt32(3))
+                {
+                    Image = shopElement.Image
+                };
                 allElectronics.Add(newElectronics);
             }
 
