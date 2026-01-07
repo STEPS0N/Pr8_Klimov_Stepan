@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Interop;
 
-namespace Shop_Климов.Classes
+namespace Shop_Климов.Models
 {
     public class Shop
     {

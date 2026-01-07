@@ -51,14 +51,15 @@ namespace Shop_Климов
                     bool found = shopItem.Name.ToLower().Contains(search);
 
                     if (!found && item is Classes.Children childrenItem)
-                        found = childrenItem.Age.ToString().Contains(search);
+                        found = childrenItem.Age.ToString().Contains(search) || childrenItem.Price.ToString().Contains(search);
+                        
 
                     if (!found && item is Classes.Sport sportItem)
-                        found = sportItem.Size.ToLower().Contains(search);
+                        found = sportItem.Size.ToLower().Contains(search) || sportItem.Price.ToString().Contains(search);
 
                     if (!found && item is Classes.Electronics electronicsItem)
                         found = electronicsItem.Battery_capacity.ToString().Contains(search) ||
-                               electronicsItem.Processor.ToLower().Contains(search);
+                               electronicsItem.Processor.ToLower().Contains(search) || electronicsItem.Price.ToString().Contains(search);
 
                     if (found)
                     {
