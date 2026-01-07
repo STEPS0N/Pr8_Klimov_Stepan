@@ -9,9 +9,12 @@ namespace Shop_Климов.Models
     public class Children : Shop
     {
         public int Age { get; set; }
-        public Children(string Name, int Price, string Image, int Age) : base(Name, Price, Image)
+        public int IdShop { get; set; }
+        public Children() { }
+        public Children(int Id, string Name, int Price, int Age, int IdShop) : base(Id, Name, Price)
         {
             this.Age = Age;
+            this.IdShop = IdShop;
         }
     }
 }
