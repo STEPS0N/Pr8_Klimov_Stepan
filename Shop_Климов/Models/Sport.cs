@@ -9,9 +9,12 @@ namespace Shop_Климов.Models
     public class Sport : Shop
     {
         public string Size { get; set; }
-        public Sport(string Name, int Price, string Image, string Size) : base(Name, Price, Image)
+        public int IdShop { get; set; }
+        public Sport() { }
+        public Sport(int Id, string Name, int Price, string Size, int IdShop) : base(Id, Name, Price)
         {
             this.Size = Size;
+            this.IdShop = IdShop;
         }
     }
 }

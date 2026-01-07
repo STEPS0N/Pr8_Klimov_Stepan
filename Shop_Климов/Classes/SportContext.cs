@@ -9,40 +9,40 @@ using System.Threading.Tasks;
 
 namespace Shop_Климов.Classes
 {
-    public class ChildrenContext : Children, IContext
+    public class SportContext : Sport, IContext
     {
-        public ChildrenContext() { }
-        public ChildrenContext(int Id, string Name, int Price, int Age, int IdShop) : base(Id, Name, Price, Age, IdShop)
+        public SportContext() { }
+        public SportContext(int Id, string Name, int Price, string Size, int IdShop) : base(Id, Name, Price, Size, IdShop)
         {
-            this.Age = Age;
+            this.Size = Size;
             this.IdShop = IdShop;
         }
         public List<object> All()
         {
             List<object> allShop = new ShopContext().All();
-            List<object> allChildren = new List<object>();
+            List<object> allSport = new List<object>();
             OleDbConnection connection = Common.DBConnection.Connection();
-            OleDbDataReader childrenData = Common.DBConnection.Query("SELECT * FROM [Детские вещи]", connection);
-            while (childrenData.Read())
+            OleDbDataReader sportData = Common.DBConnection.Query("SELECT * FROM [Спортивные вещи]", connection);
+            while (sportData.Read())
             {
                 ShopContext shopElement = allShop.Find(
-                    x => (x as ShopContext).Id == childrenData.GetInt32(2)) as ShopContext;
-                ChildrenContext newChildren = new ChildrenContext(
+                    x => (x as ShopContext).Id == sportData.GetInt32(2)) as ShopContext;
+                SportContext newSport = new SportContext(
                     shopElement.Id,
                     shopElement.Name,
                     shopElement.Price,
-                    childrenData.GetInt32(1),
-                    childrenData.GetInt32(2)
+                    sportData.GetString(1),
+                    sportData.GetInt32(2)
                     );
-                allChildren.Add(newChildren);
+                allSport.Add(newSport);
             }
 
             Common.DBConnection.CloseConnection(connection);
 
-            return allChildren;
+            return allSport;
         }
 
-        public void Save (bool Update = false)
+        public void Save(bool Update = false)
         {
             throw new NotImplementedException();
         }

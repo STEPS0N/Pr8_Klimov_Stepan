@@ -23,22 +23,22 @@ namespace Shop_Климов.Elements
         public Item(object ItemData)
         {
             InitializeComponent();
-            Classes.Shop ShopData = ItemData as Classes.Shop;
+            Models.Shop ShopData = ItemData as Models.Shop;
             tb_Name.Content = ShopData.Name;
             tb_Price.Content = "Цена: " + ShopData.Price + " руб.";
-            if (ItemData is Classes.Children)
+            if (ItemData is Models.Children)
             {
-                Classes.Children ChildrenData = ItemData as Classes.Children;
+                Models.Children ChildrenData = ItemData as Models.Children;
                 tb_Characteristic1.Content = "Возраст: " + ChildrenData.Age;
             }
-            if (ItemData is Classes.Sport)
+            if (ItemData is Models.Sport)
             {
-                Classes.Sport SportData = ItemData as Classes.Sport;
+                Models.Sport SportData = ItemData as Models.Sport;
                 tb_Characteristic1.Content = "Размер: " + SportData.Size;
             }
-            if (ItemData is Classes.Electronics)
+            if (ItemData is Models.Electronics)
             {
-                Classes.Electronics ElectronicsData = ItemData as Classes.Electronics;
+                Models.Electronics ElectronicsData = ItemData as Models.Electronics;
                 tb_Characteristic1.Content = "Ёмкость АКБ: " + ElectronicsData.Battery_capacity + " мАч";
                 tb_Characteristic2.Content = "Процессор: " + ElectronicsData.Processor;
             }

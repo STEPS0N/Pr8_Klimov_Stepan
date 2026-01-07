@@ -16,7 +16,9 @@ namespace Shop_Климов
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<object> AllItems = Classes.RepoItems.AllItems();
+        List<object> Child = new Classes.ChildrenContext().All();
+        List<object> Sport = new Classes.SportContext().All();
+        List<object> Electro = new Classes.ElectronicsContext().All();
 
         public MainWindow()
         {
@@ -26,47 +28,55 @@ namespace Shop_Климов
         
         public void CreateUI()
         {
-            foreach (object Item in AllItems)
+            foreach (object Item in Child)
+            {
+                parent.Children.Add(new Elements.Item(Item));
+            }
+            foreach (object Item in Sport)
+            {
+                parent.Children.Add(new Elements.Item(Item));
+            }
+            foreach (object Item in Electro)
             {
                 parent.Children.Add(new Elements.Item(Item));
             }
         }
 
-        private void Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string search = Search.Text.Trim().ToLower();
+        //private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    string search = Search.Text.Trim().ToLower();
 
-            parent.Children.Clear();
+        //    parent.Children.Clear();
 
-            if (string.IsNullOrWhiteSpace(search))
-            {
-                CreateUI();
-                return;
-            }
+        //    if (string.IsNullOrWhiteSpace(search))
+        //    {
+        //        CreateUI();
+        //        return;
+        //    }
 
-            foreach (object item in AllItems)
-            {
-                if (item is Classes.Shop shopItem)
-                {
-                    bool found = shopItem.Name.ToLower().Contains(search);
+        //    foreach (object item in AllItems)
+        //    {
+        //        if (item is Models.Shop shopItem)
+        //        {
+        //            bool found = shopItem.Name.ToLower().Contains(search);
 
-                    if (!found && item is Classes.Children childrenItem)
-                        found = childrenItem.Age.ToString().Contains(search) || childrenItem.Price.ToString().Contains(search);
+        //            if (!found && item is Models.Children childrenItem)
+        //                found = childrenItem.Age.ToString().Contains(search) || childrenItem.Price.ToString().Contains(search);
                         
 
-                    if (!found && item is Classes.Sport sportItem)
-                        found = sportItem.Size.ToLower().Contains(search) || sportItem.Price.ToString().Contains(search);
+        //            if (!found && item is Models.Sport sportItem)
+        //                found = sportItem.Size.ToLower().Contains(search) || sportItem.Price.ToString().Contains(search);
 
-                    if (!found && item is Classes.Electronics electronicsItem)
-                        found = electronicsItem.Battery_capacity.ToString().Contains(search) ||
-                               electronicsItem.Processor.ToLower().Contains(search) || electronicsItem.Price.ToString().Contains(search);
+        //            if (!found && item is Models.Electronics electronicsItem)
+        //                found = electronicsItem.Battery_capacity.ToString().Contains(search) ||
+        //                       electronicsItem.Processor.ToLower().Contains(search) || electronicsItem.Price.ToString().Contains(search);
 
-                    if (found)
-                    {
-                        parent.Children.Add(new Elements.Item(item));
-                    }
-                }
-            }
-        }
+        //            if (found)
+        //            {
+        //                parent.Children.Add(new Elements.Item(item));
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
