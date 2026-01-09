@@ -12,7 +12,7 @@ namespace Shop_Климов.Classes
     public class SportContext : Sport, IContext
     {
         public SportContext() { }
-        public SportContext(int Id, string Name, int Price, string Size, int IdShop) : base(Id, Name, Price, Size, IdShop)
+        public SportContext(int Id, string Name, int Price, int Discount, string Size, int IdShop) : base(Id, Name, Price, Discount, Size, IdShop)
         {
             this.Size = Size;
             this.IdShop = IdShop;
@@ -31,6 +31,7 @@ namespace Shop_Климов.Classes
                     shopElement.Id,
                     shopElement.Name,
                     shopElement.Price,
+                    shopElement.Discount,
                     sportData.GetString(1),
                     sportData.GetInt32(2))
                 {

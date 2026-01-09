@@ -11,7 +11,7 @@ namespace Shop_Климов.Models
         public string Size { get; set; }
         public int IdShop { get; set; }
         public Sport() { }
-        public Sport(int Id, string Name, int Price, string Size, int IdShop) : base(Id, Name, Price)
+        public Sport(int Id, string Name, int Price, int Discount, string Size, int IdShop) : base(Id, Name, Price, Discount)
         {
             this.Size = Size;
             this.IdShop = IdShop;

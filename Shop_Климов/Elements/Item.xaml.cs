@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,9 @@ namespace Shop_Климов.Elements
             InitializeComponent();
             Models.Shop ShopData = ItemData as Models.Shop;
             tb_Name.Content = ShopData.Name;
-            tb_Price.Content = "Цена: " + ShopData.Price + " руб.";
+            tb_Discount.Content = "Скидка: " + ShopData.Discount + " %";
+            int discount = ShopData.Price * (100 - ShopData.Discount) / 100;
+            tb_Price.Content = "Цена: " + discount + $" руб. Без скидки: {ShopData.Price} руб.";
             if (ItemData is Models.Children)
             {
                 Models.Children ChildrenData = ItemData as Models.Children;

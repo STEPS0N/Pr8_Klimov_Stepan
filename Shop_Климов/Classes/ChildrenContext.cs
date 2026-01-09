@@ -12,7 +12,7 @@ namespace Shop_Климов.Classes
     public class ChildrenContext : Children, IContext
     {
         public ChildrenContext() { }
-        public ChildrenContext(int Id, string Name, int Price, int Age, int IdShop) : base(Id, Name, Price, Age, IdShop)
+        public ChildrenContext(int Id, string Name, int Price, int Discount, int Age, int IdShop) : base(Id, Name, Price, Discount, Age, IdShop)
         {
             this.Age = Age;
             this.IdShop = IdShop;
@@ -31,6 +31,7 @@ namespace Shop_Климов.Classes
                     shopElement.Id,
                     shopElement.Name,
                     shopElement.Price,
+                    shopElement.Discount,
                     childrenData.GetInt32(1),
                     childrenData.GetInt32(2))
                 {

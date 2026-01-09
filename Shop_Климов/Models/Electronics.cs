@@ -13,7 +13,7 @@ namespace Shop_Климов.Models
         public int IdShop { get; set; }
         public Electronics() { }
 
-        public Electronics(int Id, string Name, int Price, int Battery_capacity, string Processor, int IdShop) : base (Id ,Name, Price)
+        public Electronics(int Id, string Name, int Price, int Discount, int Battery_capacity, string Processor, int IdShop) : base (Id, Name, Price, Discount)
         {
             this.Battery_capacity = Battery_capacity;
             this.Processor = Processor;

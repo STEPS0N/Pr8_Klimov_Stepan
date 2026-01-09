@@ -12,8 +12,8 @@ namespace Shop_Климов.Classes
     public class ElectronicsContext : Electronics, IContext
     {
         public ElectronicsContext() { }
-        public ElectronicsContext(int Id, string Name, int Price, int Battery_capacity, string Processor, int IdShop) : 
-            base(Id, Name, Price, Battery_capacity, Processor, IdShop)
+        public ElectronicsContext(int Id, string Name, int Price, int Discount, int Battery_capacity, string Processor, int IdShop) : 
+            base(Id, Name, Price, Discount, Battery_capacity, Processor, IdShop)
         {
             this.Battery_capacity = Battery_capacity;
             this.Processor = Processor;
@@ -33,6 +33,7 @@ namespace Shop_Климов.Classes
                     shopElement.Id,
                     shopElement.Name,
                     shopElement.Price,
+                    shopElement.Discount,
                     electronicsData.GetInt32(1),
                     electronicsData.GetString(2),
                     electronicsData.GetInt32(3))

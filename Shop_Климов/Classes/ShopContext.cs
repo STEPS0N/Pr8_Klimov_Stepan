@@ -13,7 +13,7 @@ namespace Shop_Климов.Classes
     {
         public ShopContext() { }
 
-        public ShopContext(int Id, string Name, int Price, string Image) : base(Id, Name, Price, Image) { }
+        public ShopContext(int Id, string Name, int Price, int Discount, string Image) : base(Id, Name, Price, Discount, Image) { }
 
         public List<object> All()
         {
@@ -27,7 +27,8 @@ namespace Shop_Климов.Classes
                     shopData.GetInt32(0),
                     shopData.GetString(1),
                     shopData.GetInt32(2),
-                    shopData.GetString(3)
+                    shopData.GetInt32(3),
+                    shopData.GetString(4)
                     );
                 allShop.Add(newShop);
             }
